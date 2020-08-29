@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PE_PROJECT_SETTINGS_DOCUMENTATION>
+  <PE_product_version v="version 10.1 for Internal Usage Only" />
+  <PE_core_version v="Processor Expert Version 0521" />
+  <CPU_Bean name="Cpu" type="S32K118_64">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Cpu" />
+      <CPU_type v="S32K118_64" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+    </Events>
+    <Compiler v="GNU C Compiler" />
+    <CompilerProperties>
+      <Compiler v="GNU C Compiler" />
+      <boolgroup name="Generate linker file" v="no" />
+    </CompilerProperties>
+  </CPU_Bean>
+  <Bean name="lin_cfg" type="LinStack">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="lin_cfg" />
+      <group name="Network configuration">
+        <Use_transport_layer v="yes" />
+        <Support_diagnostic_service v="yes" />
+        <Timeout_unit__us_ v="500" />
+        <list name="List of networks" v="1">
+          <group name="Network detail">
+            <Network_name v="LI0" />
+            <Device v="LPUART1" />
+            <LDF_file v="Sources\LIN_LDF.ldf" />
+            <Protocol_version v="2.1" />
+            <Node_name v="MFS" />
+            <Diagnostic v="Class 3" />
+            <Idle_timeout__s_ v="5" />
+            <Max_message_length__bytes_ v="64" />
+            <Autobaud v="no" />
+            <Configuration_name v="lin1_InitConfig0" />
+            <boolgroup name="Supported services" v="yes">
+              <Assign_NAD__0xB0_ v="no" />
+              <Assign_frame_identifier__0xB1_ v="no" />
+              <Read_by_identifier__0xB2_ v="yes" />
+              <Conditional_change_NAD__0xB3_ v="no" />
+              <Data_dump__0xB4_ v="no" />
+              <Save_configuration__0xB6_ v="yes" />
+              <Assign_frame_identifier_range__0xB7_ v="yes" />
+              <Read_data_by_identifier__0x22_ v="yes" />
+              <Write_data_by_identifier__0x2E_ v="yes" />
+              <Session_control__0x10_ v="yes" />
+              <I_O_control_by_identifier__0x2F_ v="yes" />
+              <Fault_memory_read__0x19_ v="yes" />
+              <Fault_memory_clear__0x14_ v="yes" />
+              <Target_reset_service__0xB5_ v="no" />
+              <boolgroup name="User SID supported" v="no" />
+            </boolgroup>
+          </group>
+        </list>
+      </group>
+      <group name="LIN description file">
+        <_unspecified_item_name_ v="Reload" />
+        <LDF_file_name v="Sources\LIN_LDF.ldf" />
+        <boolgroup name="Edit enable" v="yes">
+          <group name="Global definition">
+            <Protocol_version v="2.1" />
+            <Language_version v="2.1" />
+            <Speed__bps_ v="19200" />
+          </group>
+          <group name="Node definition">
+            <group name="Master">
+              <Name v="GW" />
+              <Time_base__ms_ v="1" />
+              <Jitter__ms_ v="0.100000000000" />
+            </group>
+            <list name="List of slaves" v="1">
+              <Name0 v="MFS" />
+            </list>
+          </group>
+          <group name="Signal definition">
+            <list name="List of signals" v="20">
+              <group name="Signal">
+                <Name v="MFS_SeekPlus_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_SeekReduce_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_VolPlus_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_VolReduce_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_OK_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_Speech_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_Menu_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_RES_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_SET_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_DIST_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_LIM_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_SpeedPlus_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_SpeedReduce_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_ACC_switch_signal" />
+                <Type v="Scalar" />
+                <Size__bits_ v="2" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="MFS_LIN_Error" />
+                <Type v="Scalar" />
+                <Size__bits_ v="1" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="temp1" />
+                <Type v="Scalar" />
+                <Size__bits_ v="8" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="temp2" />
+                <Type v="Scalar" />
+                <Size__bits_ v="8" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="temp3" />
+                <Type v="Scalar" />
+                <Size__bits_ v="8" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="temp5" />
+                <Type v="Scalar" />
+                <Size__bits_ v="8" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+              <group name="Signal">
+                <Name v="temp4" />
+                <Type v="Scalar" />
+                <Size__bits_ v="8" />
+                <Publisher v="MFS" />
+                <list name="List of subscribers" v="1">
+                  <Name0 v="GW" />
+                </list>
+                <list name="Init value" v="1">
+                  <group name="Init value">
+                    <Value v="0" />
+                  </group>
+                </list>
+              </group>
+            </list>
+          </group>
+          <group name="Unconditional frame definition">
+            <list name="List of unconditional frames" v="2">
+              <group name="Unconditional frame">
+                <Name v="MFS_LIN_1" />
+                <ID v="25" />
+                <ID_HEX v="25" />
+                <PID v="153" />
+                <Publisher v="MFS" />
+                <Size__bytes_ v="8" />
+                <list name="List of signals" v="17">
+                  <group name="Signal List">
+                    <Name v="MFS_SeekPlus_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="0" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_SeekReduce_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="2" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_VolPlus_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="4" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_VolReduce_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="6" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_OK_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="8" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_Speech_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="10" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_Menu_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="12" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_RES_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="16" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_SET_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="18" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_DIST_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="20" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_LIM_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="22" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_SpeedPlus_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="24" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_SpeedReduce_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="26" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_ACC_switch_signal" />
+                    <Size__bits_ v="2" />
+                    <Offset__bit_ v="28" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="MFS_LIN_Error" />
+                    <Size__bits_ v="1" />
+                    <Offset__bit_ v="30" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="temp5" />
+                    <Size__bits_ v="8" />
+                    <Offset__bit_ v="48" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="temp4" />
+                    <Size__bits_ v="8" />
+                    <Offset__bit_ v="56" />
+                  </group>
+                </list>
+              </group>
+              <group name="Unconditional frame">
+                <Name v="UFrame1" />
+                <ID v="16" />
+                <ID_HEX v="16" />
+                <PID v="80" />
+                <Publisher v="MFS" />
+                <Size__bytes_ v="8" />
+                <list name="List of signals" v="4">
+                  <group name="Signal List">
+                    <Name v="temp1" />
+                    <Size__bits_ v="8" />
+                    <Offset__bit_ v="0" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="temp2" />
+                    <Size__bits_ v="8" />
+                    <Offset__bit_ v="8" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="temp3" />
+                    <Size__bits_ v="8" />
+                    <Offset__bit_ v="16" />
+                  </group>
+                  <group name="Signal List">
+                    <Name v="temp4" />
+                    <Size__bits_ v="8" />
+                    <Offset__bit_ v="24" />
+                  </group>
+                </list>
+              </group>
+            </list>
+          </group>
+          <group name="Event triggered frame definition">
+            <list name="List of event triggered frames" v="0">
+              <EmptySection_DummyValue />
+            </list>
+          </group>
+          <group name="Sporadic frame definition">
+            <list name="List of sporadic frames" v="0">
+              <EmptySection_DummyValue />
+            </list>
+          </group>
+          <group name="Node attribute definition">
+            <list name="List of node attributes" v="1">
+              <group name="Node Attribute">
+                <Name v="MFS" />
+                <Protocol v="2.1" />
+                <Configured_NAD v="1" />
+                <Initial_NAD v="1" />
+                <group name="Product ID">
+                  <Supplier_ID v="0" />
+                  <Function_ID v="0" />
+                  <Variant_ID v="0" />
+                </group>
+                <Serial_0 v="1" />
+                <Serial_1 v="1" />
+                <Serial_2 v="1" />
+                <Serial_3 v="1" />
+                <Response_error v="MFS_LIN_Error" />
+                <P2_min__ms_ v="50" />
+                <ST_min__ms_ v="0" />
+                <boolgroup name="LIN 2.1, 2.2, 2.2A protocol" v="yes">
+                  <N_As_timeout__ms_ v="1000" />
+                  <N_Cr_timeout__ms_ v="1000" />
+                </boolgroup>
+                <list name="List of frames" v="2">
+                  <group name="Frame">
+                    <Name v="MFS_LIN_1" />
+                    <boolgroup name="LIN J2602 protocol" v="no" />
+                  </group>
+                  <group name="Frame">
+                    <Name v="UFrame1" />
+                    <boolgroup name="LIN J2602 protocol" v="no" />
+                  </group>
+                </list>
+              </group>
+            </list>
+          </group>
+          <group name="Schedule table definition">
+            <list name="List of schedule tables" v="2">
+              <group name="Schedule table definition">
+                <Name v="Dynamic" />
+                <list name="Number of frames" v="3">
+                  <group name="Schedule table item detail">
+                    <Schedule_table_item_type v="FreeFormat" />
+                  </group>
+                  <group name="Schedule table item detail">
+                    <Schedule_table_item_type v="Frame" />
+                  </group>
+                  <group name="Schedule table item detail">
+                    <Schedule_table_item_type v="FreeFormat" />
+                  </group>
+                </list>
+              </group>
+              <group name="Schedule table definition">
+                <Name v="Diagnose" />
+                <list name="Number of frames" v="3">
+                  <group name="Schedule table item detail">
+                    <Schedule_table_item_type v="Frame" />
+                  </group>
+                  <group name="Schedule table item detail">
+                    <Schedule_table_item_type v="Frame" />
+                  </group>
+                  <group name="Schedule table item detail">
+                    <Schedule_table_item_type v="FreeFormat" />
+                  </group>
+                </list>
+              </group>
+            </list>
+          </group>
+        </boolgroup>
+      </group>
+      <group name="Shared components">
+        <clock_manager v="clockMan1" />
+        <interrupt_manager v="intMan1" />
+      </group>
+      <group name="Inherited components">
+        <list name="List of Inherited Components" v="1">
+          <group name="InheritedList0">
+            <inhrbean type="lin">
+              <Enabled v="Y" />
+              <Properties>
+                <Component_name v="lin1" />
+                <Device v="LPUART1" />
+                <Component_version v="S32_SDK" />
+              </Properties>
+              <Methods>
+                <EmptySection_DummyValue />
+              </Methods>
+              <Events>
+                <EmptySection_DummyValue />
+              </Events>
+            </inhrbean>
+            <Network_name v="LI0" />
+          </group>
+        </list>
+      </group>
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="lpTmr1" type="lptmr">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="lpTmr1" />
+      <Device v="LPTMR0" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="intMan1" type="interrupt_manager">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="intMan1" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="pin_mux" type="PinSettings">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="pin_mux" />
+      <PinSettings_IP_Block v="PinSettings" />
+      <Processor v="S32K118_64" />
+      <group name="Settings">
+        <EmptySection_DummyValue />
+      </group>
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="osif1" type="osif">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="osif1" />
+      <Component_version v="osifcommon" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="dmaController1" type="edma">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="dmaController1" />
+      <Device v="DMA" />
+      <Component_version v="S32_SDK_DMA_4CH" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="clockMan1" type="clock_manager">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="clockMan1" />
+      <Component_version v="S32_SDK_S32K" />
+      <group name="">
+        <list name="Callbacks" v="1">
+          <boolgroup name="Configuration0" v="Disabled" />
+        </list>
+        <group name="Shared components">
+          <interrupt_manager v="intMan1" />
+        </group>
+      </group>
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+</PE_PROJECT_SETTINGS_DOCUMENTATION>
+

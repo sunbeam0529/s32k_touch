@@ -1,0 +1,142 @@
+/*---------GLOBAL DEFINITIONS-----------*/
+LIN_description_file;
+LIN_protocol_version             = "2.1";
+LIN_language_version             = "2.1";
+LIN_speed                        = 19.2 kbps;
+/* ----------NODE DEFINITIONS---------- */
+Nodes {
+   Master:
+      GW,                                                    /* Master node name */
+      1 ms,                                                  /* Time base */
+      0.1 ms;                                                /* Jitter */
+   Slaves:
+      MFS;
+}
+/* ----------SIGNAL DEFINITIONS---------- */
+Signals {
+   /* Signal_name                : Size,                              Init,            Publisher, Subscriber(s) */
+   MFS_SeekPlus_switch_signal    :  2,                                0x00,                  MFS, GW;
+   MFS_SeekReduce_switch_signal  :  2,                                0x00,                  MFS, GW;
+   MFS_VolPlus_switch_signal     :  2,                                0x00,                  MFS, GW;
+   MFS_VolReduce_switch_signal   :  2,                                0x00,                  MFS, GW;
+   MFS_OK_switch_signal          :  2,                                0x00,                  MFS, GW;
+   MFS_Speech_switch_signal      :  2,                                0x00,                  MFS, GW;
+   MFS_Menu_switch_signal        :  2,                                0x00,                  MFS, GW;
+   MFS_RES_switch_signal         :  2,                                0x00,                  MFS, GW;
+   MFS_SET_switch_signal         :  2,                                0x00,                  MFS, GW;
+   MFS_DIST_switch_signal        :  2,                                0x00,                  MFS, GW;
+   MFS_LIM_switch_signal         :  2,                                0x00,                  MFS, GW;
+   MFS_SpeedPlus_switch_signal   :  2,                                0x00,                  MFS, GW;
+   MFS_SpeedReduce_switch_signal :  2,                                0x00,                  MFS, GW;
+   MFS_ACC_switch_signal         :  2,                                0x00,                  MFS, GW;
+   MFS_LIN_Error                 :  1,                                0x00,                  MFS, GW;
+   temp1                         :  8,                                0x00,                  MFS, GW;
+   temp2                         :  8,                                0x00,                  MFS, GW;
+   temp3                         :  8,                                0x00,                  MFS, GW;
+   temp5                         :  8,                                0x00,                  MFS, GW;
+   temp4                         :  8,                                0x00,                  MFS, GW;
+}
+/* ----------DIAGNOSTIC SIGNAL DEFINITIONS---------- */
+Diagnostic_signals {
+   /* MasterReq Reserved Signals */
+   MasterReqB0         :    8,   0;
+   MasterReqB1         :    8,   0;
+   MasterReqB2         :    8,   0;
+   MasterReqB3         :    8,   0;
+   MasterReqB4         :    8,   0;
+   MasterReqB5         :    8,   0;
+   MasterReqB6         :    8,   0;
+   MasterReqB7         :    8,   0;
+   /* SlaveResp Reserved Signals */
+   SlaveRespB0         :    8,   0;
+   SlaveRespB1         :    8,   0;
+   SlaveRespB2         :    8,   0;
+   SlaveRespB3         :    8,   0;
+   SlaveRespB4         :    8,   0;
+   SlaveRespB5         :    8,   0;
+   SlaveRespB6         :    8,   0;
+   SlaveRespB7         :    8,   0;
+}
+/* ----------UNCONDITIONAL FRAME DEFINITIONS---------- */
+Frames {
+   MFS_LIN_1           : 0x19, MFS                 ,    8 {
+      MFS_SeekPlus_switch_signal, 0;
+      MFS_SeekReduce_switch_signal, 2;
+      MFS_VolPlus_switch_signal, 4;
+      MFS_VolReduce_switch_signal, 6;
+      MFS_OK_switch_signal, 8;
+      MFS_Speech_switch_signal, 10;
+      MFS_Menu_switch_signal, 12;
+      MFS_RES_switch_signal, 16;
+      MFS_SET_switch_signal, 18;
+      MFS_DIST_switch_signal, 20;
+      MFS_LIM_switch_signal, 22;
+      MFS_SpeedPlus_switch_signal, 24;
+      MFS_SpeedReduce_switch_signal, 26;
+      MFS_ACC_switch_signal, 28;
+      MFS_LIN_Error       , 30;
+      temp5               , 48;
+      temp4               , 56;
+   }
+   UFrame1             : 0x10, MFS                 ,    8 {
+      temp1               , 0;
+      temp2               , 8;
+      temp3               , 16;
+      temp4               , 24;
+   }
+}
+/* ----------DIAGNOSTIC FRAME DEFINITIONS---------- */
+Diagnostic_frames {
+   MasterReq           : 0x3C {
+      MasterReqB0         , 0;
+      MasterReqB1         , 8;
+      MasterReqB2         , 16;
+      MasterReqB3         , 24;
+      MasterReqB4         , 32;
+      MasterReqB5         , 40;
+      MasterReqB6         , 48;
+      MasterReqB7         , 56;
+   }
+   SlaveResp           : 0x3D {
+      SlaveRespB0         , 0;
+      SlaveRespB1         , 8;
+      SlaveRespB2         , 16;
+      SlaveRespB3         , 24;
+      SlaveRespB4         , 32;
+      SlaveRespB5         , 40;
+      SlaveRespB6         , 48;
+      SlaveRespB7         , 56;
+   }
+}
+/* ----------NODE ATTRIBUTE DEFINITIONS---------- */
+Node_attributes {
+   MFS {
+      LIN_protocol               = "2.1";                    /* Node protocol version */
+      configured_NAD             = 0x01;                     /* configured NAD of node */
+      initial_NAD                = 0x01;                     /* initial NAD of node */
+      product_id                 = 0x00, 0x00, 0x00;         /* Product id */
+      response_error             = MFS_LIN_Error;            /* Response error signal */
+      P2_min                     = 50 ms;                    /* P2_min */
+      ST_min                     = 0 ms;                     /* ST_min */
+      N_As_timeout               = 1000 ms;                  /* N_As_timeout */
+      N_Cr_timeout               = 1000 ms;                  /* N_As_timeout */
+      configurable_frames {
+         MFS_LIN_1;
+         UFrame1;
+      }
+   }
+}
+/* ----------SCHEDULE TABLE DEFINITIONS---------- */
+Schedule_tables {
+   Dynamic {
+      FreeFormat {0, 0, 0, 0, 0, 0, 0, 0}                delay 10 ms;
+      MFS_LIN_1                                          delay 10 ms;
+      FreeFormat {0, 0, 0, 0, 0, 0, 0, 0}                delay 10 ms;
+   }
+   Diagnose {
+      MasterReq                                          delay 10 ms;
+      SlaveResp                                          delay 10 ms;
+      FreeFormat {0, 0, 0, 0, 0, 0, 0, 0}                delay 50 ms;
+   }
+}
+

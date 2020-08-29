@@ -1,0 +1,81 @@
+/*!
+    @page lin_slave_s32k118_group LIN SLAVE
+    @brief Example that shows the usage of the LIN stack in slave mode
+
+    ## Application description ##
+    __________
+   This example demonstrates the LIN communication between S32K118 EVB Master and Slave using
+    unconditional frames.
+    - The Master SeatECU is in NormalTable schedule table and it uses the LIN frame Motor1State_Cycl to receive temperature signal Motor1Temp
+    from Slave Motor1 and send selection signal Motor1Selection to Slave Motor1 by frame Motor1Control. The first turn on GREEN_LED,
+    then 5s GREEN_LED and BLUE_LED will toggle alternately.
+    - When user press button BUTTON 1 on the Slave board, value of temperature signal will be increased.
+    - When user press button BUTTON 2 on the Slave board, value of temperature signal will be set to value which is lower MOTOR1_MAX_TEMP value
+    and turn on GREEN_LED.
+    - If value of temperature signal is higher than MOTOR1_OVER_TEMP value, Master SeatECU will send STOP command
+    through Motor1Selection signal to stop motor and turn on RED_LED.
+    - If value of temperature signal is in range from MOTOR1_MAX_TEMP value to MOTOR1_OVER_TEMP value, master SeatECU
+    will send DECREASE MOTOR SPEED command through Motor1Selection signal to reduce motor speed and turn on BLUE_LED.
+    - If value of temperature signal is lower than MOTOR1_MAX_TEMP value, master will send INCREASE MOTOR SPEED
+    command through Motor1Selection signal to increase motor speed and turn on GREEN_LED.
+    - When users press button BUTTON 1 on the Master board, the Master SeatECU switches its schedule table to go-to-sleep table.
+    So the Slave and Master enter sleep mode, RGB LEDS are off.
+    - When LIN cluster is in sleep mode, users press button BUTTON 2 on the Master board, the Master board sends a wakeup signal to wakeup slave nodes,
+    then switches its table to NormalTable.
+
+    @note This example will work only in FLASH target.
+
+    ## Prerequisites ##
+    __________
+    To run the example you will need to have the following items:
+    - 1 S32K118 board
+    - 1 Power Adapter 12V
+    - 5 Dupont female to female cable
+    - 1 Personal Computer
+    - 1 Jlink Lite Debugger (optional, users can use Open SDA)
+
+    ## Boards supported ##
+    __________
+    The following boards are supported by this application:
+    - S32K118EVB-Q064
+    - S32K1xxCVD-Q64 with S32K118 chip
+
+    ## Hardware Wiring ##
+    __________
+    The following connections must be done to for this example application to work:
+
+    PIN FUNCTION         |   S32K118EVB-Q064              |    S32K1xxCVD-Q64
+    ---------------------|--------------------------------|----------------------------
+    BUTTON 2 (\b PTD5)   | SW3 - wired on the board       | BTN3 - wired on the board
+    BUTTON 1 (\b PTD3)   | SW2 - wired on the board       | BTN2 - wired on the board
+    RED_LED (\b PTD16)   | RGB_RED - wired on the board   | J12.15 - J11.31
+    GREEN_LED (\b PTD15) | RGB_GREEN - wired on the board | J12.18 - J11.30
+    BLUE_LED (\b PTE8)   | RGB_BLUE - wired on the board  | J13.23 - J11.29
+    GND (\b GND)         | J11-4 - Master GND             | J6 - Master GND
+    LIN (\b *)           | J11-1 - Master LIN             | J48.4 - Master LIN
+
+    <b>(*) Those lines must be modulated using a transceiver, if it is not specified the boards already include the LIN transceiver</b>
+
+    ## How to run ##
+    __________
+    #### 1. Importing the project into the workspace ####
+    After opening S32 Design Studio, go to \b File -> \b New \b S32DS \b Project \b From... and select \b lin_slave_s32k118. Then click on \b Finish. \n
+    The project should now be copied into you current workspace.
+    #### 2. Generating the Processor Expert configuration ####
+    First go to \b Project \b Explorer View in S32 DS and select the current project(\b lin_slave_s32k118). Then go to \b Project and click on \b Generate \b Processor \b Expert \b Code \n
+    Wait for the code generation to be completed before continuing to the next step.
+    #### 3. Building the project ####
+    Select the configuration to be built \b FLASH (Debug_FLASH) by left clicking on the downward arrow corresponding to the \b build button(@image hammer.png).
+    Wait for the build action to be completed before continuing to the next step.
+    #### 4. Running the project ####
+    Go to \b Run and select \b Debug \b Configurations. There will be two debug configurations for this project:
+     Configuration Name | Description
+     -------------------|------------
+     \b lin_slave_s32k118_debug_flash_jlink | Debug the FLASH configuration using Segger Jlink debuggers
+     \b lin_slave_s32k118_debug_flash_pemicro | Debug the FLASH configuration using PEMicro debuggers
+    \n Select the desired debug configuration and click on \b Launch. Now the perspective will change to the \b Debug \b Perspective. \n
+    Use the controls to control the program flow.
+
+    @note This example isn't successful run on RAM because RAM size of S32K118 is small. For more detailed information related to S32 Design Studio usage please consult the available documentation.
+
+*/
